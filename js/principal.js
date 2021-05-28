@@ -15,12 +15,12 @@ titulo.textContent = "Aparecida Nutricionista"
 // Cria a variável pacientes e seleciona todas as tr que contém a classes .paciente
 var pacientes = document.querySelectorAll(".paciente");
 
-//***** AULA_3: Arrays, Loop e Estilos 27-05 *****/
+/***** AULA_3: Arrays, Loop e Estilos 27-05 *****/
 
 // Cria um laço de repetição para a verificação e cálculo do IMC de todos os pacientes
 for (var i = 0; i < pacientes.length; i++) {
-    
-//  Cria a variável paciente que corresponde a cada ítem do array_pacientes, conforme o percorre  
+
+    //  Cria a variável paciente que corresponde a cada ítem do array_pacientes, conforme o percorre  
     var paciente = pacientes[i];
 
     // Cria as variáveis tdPeso e peso. Na primeira seleciona a classe .info-peso e na segunda o conteúdo de texto dela
@@ -43,12 +43,16 @@ for (var i = 0; i < pacientes.length; i++) {
         console.log("Peso inválido");
         pesoEhValido = false;
         tdImc.textContent = "Peso Inválido!";
+
+        //***** AULA_3: Modificando estilos com JS 28-05 *****/
+        paciente.classList.add("pacienteInvalido");
     }
 
     if (altura <= 0 || altura >= 3) {
         console.log("Altura inválida");
         alturaEhValida = false;
         tdImc.textContent = "Altura Inválida!";
+        paciente.classList.add("pacienteInvalido");
     }
 
     // Variável de cálculo do IMC
@@ -60,3 +64,5 @@ for (var i = 0; i < pacientes.length; i++) {
     }
 
 }
+
+
