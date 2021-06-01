@@ -90,18 +90,22 @@ botaoAdicionar.addEventListener("click", function(event){
         var gorduraTd = document.createElement("td");
         var imcTd = document.createElement("td");
 
+    // Repassa o value-form para o textContent da tabela
     nomeTd.textContent = nome;
     pesoTd.textContent = peso;
     alturaTd.textContent = altura;
     gorduraTd.textContent = gordura;
 
+    // Coloca cada td-info dentro da tr-paciente
     pacienteTr.appendChild(nomeTd);
     pacienteTr.appendChild(pesoTd);
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
 
+    // Faz a ligação entre a tabela html e o JS 
     var tabela = document.querySelector("#tabela-pacientes");
 
+    // Coloca a tr-paciente dentro da tabela
     tabela.appendChild(pacienteTr);
 })
 
