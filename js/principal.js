@@ -65,11 +65,44 @@ for (var i = 0; i < pacientes.length; i++) {
 
 }
 
+//  AULA_4: Eventos e Formulários com JS 31-05 
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
 botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault();
-    console.log("Botão clicado!")
+
+    //  AULA_4: Criando Element com JS 01-06 
+
+    // Faz a ligação entre o formulário html e o JS
+    var form = document.querySelector("#form-adiciona");
+
+    // Acessa os dados das inputs do formulário
+    var nome = form.nome.value;
+    var peso = form.peso.value;
+    var altura = form.altura.value;
+    var gordura = form.gordura.value;
+
+    // Cria os elementos do html com JS
+    var pacienteTr = document.createElement("tr");
+        var nomeTd = document.createElement("td");
+        var pesoTd = document.createElement("td");
+        var alturaTd = document.createElement("td");
+        var gorduraTd = document.createElement("td");
+        var imcTd = document.createElement("td");
+
+    nomeTd.textContent = nome;
+    pesoTd.textContent = peso;
+    alturaTd.textContent = altura;
+    gorduraTd.textContent = gordura;
+
+    pacienteTr.appendChild(nomeTd);
+    pacienteTr.appendChild(pesoTd);
+    pacienteTr.appendChild(alturaTd);
+    pacienteTr.appendChild(gorduraTd);
+
+    var tabela = document.querySelector("#tabela-pacientes");
+
+    tabela.appendChild(pacienteTr);
 })
 
 
