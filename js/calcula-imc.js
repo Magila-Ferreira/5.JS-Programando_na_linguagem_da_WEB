@@ -9,7 +9,6 @@ var titulo = document.querySelector(".titulo");
 // Alterando o valor da variável através do parâmetro text.Content
 titulo.textContent = "Aparecida Nutricionista"
 
-
 /***** AULA_2: Variáveis e Operadores 26-05 *****/
 
 // Cria a variável pacientes e seleciona todas as tr que contém a classes .paciente
@@ -57,58 +56,22 @@ for (var i = 0; i < pacientes.length; i++) {
 
     // Variável de cálculo do IMC
     if (pesoEhValido && alturaEhValida) {
-        var imc = peso / (altura * altura);
 
+        // Chama a função de cálculo do IMC
         // Altera o valor do conteúdo de texto da tdImc para o valor da variável imc
-        tdImc.textContent = imc.toFixed(2);
+        tdImc.textContent = calculaImc(peso, altura);
     }
 
 }
 
-//  AULA_4: Eventos e Formulários com JS 31-05 
-var botaoAdicionar = document.querySelector("#adicionar-paciente");
+// Aula 5 - Semântica e organização do código
 
-botaoAdicionar.addEventListener("click", function(event){
-    event.preventDefault();
+// Criando uma função nomeada com parâmetros peso / altura para calcular o IMC
+function calculaImc(peso, altura) {
 
-    //  AULA_4: Criando Element com JS 01-06 
-
-    // Faz a ligação entre o formulário html e o JS
-    var form = document.querySelector("#form-adiciona");
-
-    // Acessa os dados das inputs do formulário
-    var nome = form.nome.value;
-    var peso = form.peso.value;
-    var altura = form.altura.value;
-    var gordura = form.gordura.value;
-
-    // Cria os elementos do html com JS
-    var pacienteTr = document.createElement("tr");
-        var nomeTd = document.createElement("td");
-        var pesoTd = document.createElement("td");
-        var alturaTd = document.createElement("td");
-        var gorduraTd = document.createElement("td");
-        var imcTd = document.createElement("td");
-
-    // Repassa o value-form para o textContent da tabela
-    nomeTd.textContent = nome;
-    pesoTd.textContent = peso;
-    alturaTd.textContent = altura;
-    gorduraTd.textContent = gordura;
-
-    // Coloca cada td-info dentro da tr-paciente
-    pacienteTr.appendChild(nomeTd);
-    pacienteTr.appendChild(pesoTd);
-    pacienteTr.appendChild(alturaTd);
-    pacienteTr.appendChild(gorduraTd);
-
-    // Faz a ligação entre a tabela html e o JS 
-    var tabela = document.querySelector("#tabela-pacientes");
-
-    // Coloca a tr-paciente dentro da tabela
-    tabela.appendChild(pacienteTr);
-})
-
-
+    // Cálculo do IMC
+    // retorna o resultado 
+    return (peso/(altura*altura)).toFixed(2);
+}
 
 
