@@ -142,3 +142,10 @@ button[disabled=disabled], button:disabled {
 .margin-section {
 	margin-top: 30px;
 }
+
+#mensagens-erro {
+	font-size: 25px;
+	font-weight: bolder;
+	color: #cc3333;
+	margin: 50px 250px;
+}

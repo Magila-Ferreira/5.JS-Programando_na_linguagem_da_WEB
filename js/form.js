@@ -1,6 +1,9 @@
 //  AULA_4: Eventos e Formulários com JS 31-05 
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
+// Importando o html para a variável ul 
+var ul = document.querySelector("#mensagens-erro");
+
 botaoAdicionar.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -9,11 +12,23 @@ botaoAdicionar.addEventListener("click", function (event) {
     // Faz a ligação entre o formulário html e o JS
     var form = document.querySelector("#form-adiciona");
 
-    // Extrai informações do paciente no Form
+    // Chama a função que extrai informações do paciente no Form
     var paciente = obtemPacienteDoFormulario(form);
 
-    // Cria a tr e as td do paciente
-    var pacienteTr = montaTr(paciente); 
+    // Chama a função que cria a tr e as td do paciente
+    var pacienteTr = montaTr(paciente);
+
+    // Chama a função de verificação da validade do paciente 
+    var erros = validaPaciente(paciente);
+
+    // Verificação da validade do paciente
+    if (erros.length > 0) {
+
+        // Chama a função exibe mensagens de erro
+        exibeMensagensDeErro(erros);
+
+        return;
+    }
 
     // Faz a ligação entre a tabela html e o JS 
     var tabela = document.querySelector("#tabela-pacientes");
@@ -21,8 +36,26 @@ botaoAdicionar.addEventListener("click", function (event) {
     // Coloca a tr-paciente dentro da tabela
     tabela.appendChild(pacienteTr);
 
+    // Limpa o formulário
     form.reset();
+
+    ul.innerHTML = "";
+
 });
+
+// Função que exibe mensagens de erro
+function exibeMensagensDeErro(erros) {
+
+    // Limpa o conteúdo da ul
+    ul.innerHTML = "";
+
+    // Foreach
+    erros.forEach(function (erro) {
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
+}
 
 function obtemPacienteDoFormulario(form) {
 
@@ -69,4 +102,31 @@ function montaTd(dado, classe) {
     td.classList.add(classe);
 
     return td;
+}
+
+// Validação do paciente
+function validaPaciente(paciente) {
+
+    // Criando um array para armazenar os erros
+    var erros = [];
+
+    if (paciente.nome.length == 0) {
+        erros.push("Nome inválido!");
+    }
+
+    // Empurrando uma mensagem de erro para peso
+    if (!validaPeso(paciente.peso)) {
+        erros.push("Peso inválido!");
+    }
+
+    // Empurrando uma mensagem de erro para altura
+    if (!validaAltura(paciente.altura)) {
+        erros.push("Altura inválida!");
+    }
+
+    if (paciente.gordura.length == 0) {
+        erros.push("Gordura inválida!");
+    }
+
+    return erros;
 }
