@@ -39,8 +39,6 @@ function adicionaPacienteNaTabela(paciente) {
 
         pacienteTr.classList.add("paciente-adicionado");
 
-        console.log(pacienteTr);
-
         // Faz a ligação entre a tabela html e o JS 
         var tabela = document.querySelector("#tabela-pacientes");
     

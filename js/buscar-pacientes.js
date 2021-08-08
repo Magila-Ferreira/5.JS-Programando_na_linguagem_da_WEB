@@ -1,12 +1,6 @@
 var botaoAdicionar = document.querySelector("#buscar-pacientes");
 
-// Variável que armazena a tabela de busca dos pacientes
-var newTable = document.querySelector(".paciente-adicionado");
-
-if (!newTable === null) {
-    // Removendo tabela de paciente-adicionado antes de iniciar uma nova busca 
-    newTable.innerHTML = "";
-}
+var i = 0;
 
 // Evento de click para buscar pacientes em um endereço da rede  
 botaoAdicionar.addEventListener("click", function () {
@@ -34,11 +28,17 @@ botaoAdicionar.addEventListener("click", function () {
 
             // Laço que percorre o array pacientes
             pacientes.forEach(function (paciente) {
+                
+                // Condicional que bloqueia a busca de pacientes repetidos  
+                if (i < pacientes.length) {
+                    // Chama a função adiciona paciente na tabela
+                    adicionaPacienteNaTabela(paciente);
+                    i++;
+                } 
+            });
 
-                // Chama a função adiciona paciente na tabela
-                adicionaPacienteNaTabela(paciente);
-            })
-
+            // Chama a função de alerta
+            alerta();
         } else {
             console.log(xhr.status);
             console.log(xhr.responseText);
@@ -49,3 +49,10 @@ botaoAdicionar.addEventListener("click", function () {
     // Envio da requisição
     xhr.send();
 });
+
+// Função que alerta que a busca já foi realizada 
+function alerta() {
+    alert("A busca já adicionou todos os pacientes!!!");
+    return;
+};
+
