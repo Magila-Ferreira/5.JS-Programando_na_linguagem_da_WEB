@@ -1,3 +1,5 @@
+// Aula 7 - Filtro de tabela
+
 // Variável que armazena a input de filtro
 var campoFiltro = document.querySelector("#filtrar-tabela");
 

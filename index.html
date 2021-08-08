@@ -51,7 +51,7 @@
 
                     <tr class="paciente">
                         <td class="info-nome">João</td>
-                        <td class="info-peso">80</td>
+                        <td class="info-peso">1000</td>
                         <td class="info-altura">1.72</td>
                         <td class="info-gordura">40</td>
                         <td class="info-imc">0</td>
@@ -75,12 +75,17 @@
                     <tr class="paciente">
                         <td class="info-nome">Tatiana</td>
                         <td class="info-peso">46</td>
-                        <td class="info-altura">1.55</td>
+                        <td class="info-altura">3</td>
                         <td class="info-gordura">19</td>
                         <td class="info-imc">0</td>
                     </tr>
                 </tbody>
             </table>
+
+            <!-- Mensagem de erro -->
+            <span id="erro-ajax" class="invisivel">Erro ao buscar os pacientes</span>
+
+            <button id="buscar-pacientes" class="botao bto-principal">Buscar pacientes</button>
 
         </section>
     </main>
@@ -88,7 +93,9 @@
     <!--  AULA_4: Eventos e Formulários com JS 31-05 -->
     <section class="container margin-section">
         <h2 id="titulo-form">Adicionar novo paciente</h2>
+        
         <ul id="mensagens-erro"></ul>
+        
         <form id="form-adiciona">
             <div class="">
                 <label for="nome">Nome:</label>
@@ -96,17 +103,20 @@
             </div>
             <div class="grupo">
                 <label for="peso">Peso:</label>
-                <input id="peso" name="peso" type="text" placeholder="digite o peso do seu paciente" class="campo campo-medio">
+                <input id="peso" name="peso" type="text" placeholder="digite o peso do seu paciente"
+                    class="campo campo-medio">
             </div>
             <div class="grupo">
                 <label for="altura">Altura:</label>
-                <input id="altura" name="altura" type="text" placeholder="digite a altura do seu paciente" class="campo campo-medio">
+                <input id="altura" name="altura" type="text" placeholder="digite a altura do seu paciente"
+                    class="campo campo-medio">
             </div>
             <div class="grupo">
                 <label for="gordura">% de Gordura:</label>
-                <input id="gordura" name="gordura" type="text" placeholder="digite a % de gordura do seu paciente" class="campo campo-medio">
+                <input id="gordura" name="gordura" type="text" placeholder="digite a % de gordura do seu paciente"
+                    class="campo campo-medio">
             </div>
-    
+
             <button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
         </form>
     </section>
@@ -115,8 +125,7 @@
     <script src="js/form.js"></script>
     <script src="js/remover-paciente.js"></script>
     <script src="js/filtra.js"></script>
-    
-
-    <!-- Alteração no Git -->
+    <script src="js/buscar-pacientes.js"></script>
 </body>
+
 </html>
